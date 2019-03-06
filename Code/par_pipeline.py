@@ -8,14 +8,14 @@ Computes point neighbourshood parameters and removes irrelevant points.
 import pandas as pd
 import time
 import os
-from scipy.spatial import cKDTree
+from scipy.spatial import KDTree
 from data_preprocessing import las_to_csv, downsample
 from par_computation import neighbourhood_features
 
 # %% file paths
-las_path = "/Data/ResearchArea.las"
-las2txt_path = "D:/MasterThesis/LAStools/LAStools/bin/las2txt.exe"
-CloudCompare_path = "C:/Program Files/CloudCompare/CloudCompare.exe"
+las_path = "L:/ws_MachineLearning/ChrisLucas/delineating-linear-elements/Data/ResearchArea.las"
+las2txt_path = "L:/ARun/LAStools/bin/las2txt.exe"
+CloudCompare_path = "L:/ARun/CloudCompare_v2.9.1_bin_x64/CloudCompare.exe"
 
 # %% Prepare data and load into python
 # downsample point cloud and convert to csv
@@ -33,7 +33,7 @@ points = point_cloud.as_matrix(columns=['X', 'Y', 'Z'])
 # %% Compute nearest neighbours
 print "Computing nearest neighbours.."
 neighbours = [50]
-kdtree = cKDTree(points)
+kdtree = KDTree(points)
 distances, point_neighbours = kdtree.query(points, max(neighbours))
 print "Done!"
 
@@ -69,4 +69,5 @@ point_cloud['norm_returns'] = (point_cloud['return_number'] /
 # %% Output data
 las_path_root = os.path.splitext(las_path)[0]
 out_filename = '%s_params.csv' % (las_path_root)
+print(out_filename)
 point_cloud.to_csv(out_filename, index=False)

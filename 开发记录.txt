@@ -1,0 +1,24 @@
+conda环境lidar
+code下三个pipeline文件是主程序入口,针对这三个做notebook
+	par	准备数据与计算特征
+	clf	分类
+	lin	提取线条
+
+Python (2.7.12) 
+with the 
+	NumPy (1.11.2),
+	SciPy (0.18.1), 
+	pandas (0.18.1), 
+	scikit-learn (0.17.1)
+	Shapely (1.5.13)
+
+LASTools (version 160429) and 
+Cloud-Compare (v2.8) were used and Cloudcompare was also used for visualizing
+and downsampling the point cloud.
+
+For the computation a desktop computer was used with an Intel Xeon
+E3-1220 3.1 GHz quad-core processor and 16GB of RAM
+
+Delineating linear vegetation elements in agricultural landscapes using LiDAR point clouds
+
+https://spatialeconomics.nl/en/a-new-method-for-measuring-vegetation-lidar-data/

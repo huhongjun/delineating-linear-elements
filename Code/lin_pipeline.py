@@ -14,7 +14,7 @@ from data_preprocessing import downsample
 
 # %%
 cwd = os.getcwd()
-CloudCompare_path = "D:/Chris/CloudCompare/CloudCompare.exe"
+CloudCompare_path = "L:/ARun/CloudCompare_v2.9.1_bin_x64/CloudCompare.exe"
 point_cloud = pd.read_csv('../Data/veg_classification.csv')
 
 # Downsample low vegetation points
